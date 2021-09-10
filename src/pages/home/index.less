@@ -1,0 +1,79 @@
+@import '../../assets/mixin.less';
+
+.home {
+  width: 100%;
+  position: relative;
+  padding: 12px;
+  font-family: Circular, "PingFang-SC";
+  .header {
+    .flex(row, space-between);
+    &-title {
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+  .search {
+    margin: 12px 0;
+    background-color: #fff;
+    font-size: 16px;
+    &-city {
+      font-size: 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    &-time {
+      height: 50px;
+      line-height: 50px;
+      padding: 0 15px;
+      box-sizing: border-box;
+      .flex(row, space-between, flex-start);
+      &_left {
+        color: #000;
+      }
+      &_right {
+        color: #888;
+      }
+    }
+  }
+
+  .hot {
+    padding-bottom: 60px;
+    h1 {
+      font-size: 20px;
+    }
+    &-lists {
+      .flex(row, space-between);
+      flex-wrap: wrap;
+      .hot-lists-item {
+        width: 49%;
+        margin-bottom: 15px;
+        padding: 12px;
+        background: #fff;
+        box-sizing: border-box;
+        border-radius: 12px;
+        font-weight: 500;
+
+        .img {
+          width: 100%;
+          height: 100px;
+          border-radius: 8px;
+          object-fit: cover;
+        }
+
+        .title {
+          font-size: 14px;
+          margin: 0 0 2px;
+          color: @font-color-primary;
+        }
+        .info {
+          font-size: 12px;
+          color: @font-color-second;
+          white-space: pre-wrap;
+        }
+        .price {
+          font-size: 12px;
+          color: @font-color-primary;
+        }
+      }
+    }
+  }
+}
