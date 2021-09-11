@@ -1,19 +1,23 @@
-import React from 'react';
-import Header from './components/header'
-import Search from './components/search';
-import Hot from './components/hot'
+import React, { useEffect, useState } from 'react';
+import Header from './components/header';
+import Search, { PickerData } from './components/search';
+import Hot from './components/hot';
+import { useHttpHook } from '@/hooks';
 
-import './index.less'
+import './index.less';
 
+const Home: React.FC = (props) => {
+  const [city, cityLoading] = useHttpHook({
+    url: '/commons/city',
+  });
 
-const Home: React.FC = props => {
   return (
     <div className="home">
       <Header />
-      <Search />
+      {city && <Search city={city} cityLoading={cityLoading} />}
       <Hot />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
