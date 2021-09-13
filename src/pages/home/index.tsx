@@ -11,11 +11,15 @@ const Home: React.FC = (props) => {
     url: '/commons/city',
   });
 
+  const [houses] = useHttpHook({
+    url: '/house/hot',
+  });
+
   return (
     <div className="home">
       <Header />
       {city && <Search city={city} cityLoading={cityLoading} />}
-      <Hot />
+      {houses && <Hot houses={houses} />}
     </div>
   );
 };

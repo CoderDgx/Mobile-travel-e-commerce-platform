@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
-import { Picker, List, Calendar, Button } from 'antd-mobile';
+import { Picker, List, Calendar, Button, Toast } from 'antd-mobile';
 import { ScheduleOutlined } from '@ant-design/icons';
+import { history } from 'umi';
 import dayjs from 'dayjs';
 
 export interface PickerData {
@@ -33,6 +34,22 @@ const Search: FC<SearchProps> = (props) => {
     );
     setDataShow(false);
   };
+
+  const handleClick = () => {
+    if (times.includes('~')) {
+      history.push({
+        pathname: '/search',
+        query: {
+          code: selectedCity,
+          startTime: times.split('~')[0],
+          endTime: times.split('~')[1],
+        },
+      });
+    } else {
+      Toast.fail('请选择时间');
+    }
+  };
+
   return (
     <div className="search">
       <div className="serach-city">
@@ -64,7 +81,7 @@ const Search: FC<SearchProps> = (props) => {
         }
       />
 
-      <Button type="warning" size="large">
+      <Button type="warning" size="large" onClick={handleClick}>
         搜索民宿
       </Button>
     </div>

@@ -26,6 +26,12 @@ export default defineConfig({
           title: '我的',
           auth: true,
         },
+        {
+          path: 'search',
+          component: './search/index',
+          title: '搜索',
+          auth: true,
+        },
       ],
     },
   ],
