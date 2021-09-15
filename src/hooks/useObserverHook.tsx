@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
 
 let observer: any;
-export default function useObserverHook(ele: any, callback: any, watch = []) {
+export default function useObserverHook(
+  ele: any,
+  callback: any,
+  watch: [] | null = [],
+) {
   useEffect(() => {
     const node = document.querySelector(ele);
     if (node) {

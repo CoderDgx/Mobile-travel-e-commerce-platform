@@ -25,6 +25,7 @@
     "antd-mobile": "^2.3.4",
     "axios": "^0.21.4",
     "dayjs": "^1.10.6",
+    "project-libs": "^1.1.5",
     "react": "17.x",
     "react-dom": "17.x",
     "umi": "^3.5.18"

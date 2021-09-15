@@ -7,7 +7,7 @@ interface HttpHookProps {
   method?: Method;
   headers?: any;
   body?: any;
-  watch?: [];
+  watch?: any[];
 }
 
 export default function useHttpHook(props: HttpHookProps) {

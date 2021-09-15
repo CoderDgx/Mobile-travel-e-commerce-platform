@@ -29,14 +29,18 @@ export default function Http(props: HttpProps) {
         ...headers,
       },
       method,
-      body: JSON.stringify(body),
+      body,
     };
   }
 
   return new Promise((resolve, reject) => {
     axios({
+      method: params.method,
       url: '/api' + url,
-      ...params,
+      headers: params.headers,
+      data: {
+        ...params.body,
+      },
     })
       .then((res) => {
         if (res.status === 200) {
