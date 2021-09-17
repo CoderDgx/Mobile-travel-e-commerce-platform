@@ -2,16 +2,16 @@ import { Toast } from 'antd-mobile';
 import axios, { Method, AxiosResponse } from 'axios';
 
 interface HttpProps {
-  url: string;
-  method: Method;
+  url?: string;
+  method?: Method;
   headers?: any;
   body?: any;
-  setResult: React.Dispatch<any>;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setResult?: React.Dispatch<any>;
+  setLoading?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function Http(props: HttpProps) {
-  const { url, method, headers, body, setResult, setLoading } = props;
+  const { url, method = 'POST', headers, body, setResult, setLoading } = props;
 
   setLoading && setLoading(true);
 
@@ -20,7 +20,7 @@ export default function Http(props: HttpProps) {
   };
 
   let params: any;
-  if (method.toUpperCase() === 'GET') {
+  if (method?.toUpperCase() === 'GET') {
     params = undefined;
   } else {
     params = {

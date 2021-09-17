@@ -1,0 +1,88 @@
+@import '../../assets/mixin.less';
+
+.banner_info {
+  width: 100%;
+  height: 200px;
+}
+
+.house-page {
+  .banner {
+    .banner_info;
+    img {
+      .banner_info;
+      object-fit: cover;
+    }
+  }
+
+  .info {
+    margin: 12px;
+    padding: 12px;
+    background: #fff;
+    &-title {
+      font-size: 20px;
+      font-weight: 500;
+    }
+    &-msg {
+      padding: 5px 0;
+    }
+  }
+
+  .comment {
+    &-title {
+      font-size: 20px;
+      line-height: 20px;
+      margin-left: 12px;
+      margin-top: 20px;
+    }
+    &-lists {
+      margin: 12px 12px 60px 12px;
+      background: #fff;
+      &_item {
+        .flex(row, flex-start, flex-start);
+        padding: 12px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+        .right {
+          flex: 1;
+          padding-left: 16px;
+          &-top {
+            .flex(row, space-between);
+          }
+          &-bottom {
+            color: rgba(0, 0, 0, 0.4);
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    .flex(row, flex-start, center);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.modal-comment {
+  width: 90%;
+  .am-textarea-item {
+    margin-top: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .comment-btn {
+    margin-top: 15px;
+  }
+}

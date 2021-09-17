@@ -71,4 +71,22 @@ export default {
       });
     }, 500);
   },
+  'post /api/house/detail': {
+    data: {
+      id: 8,
+      banner: [
+        'https://z1.muscache.cn/im/pictures/miso/Hosting-45063845/original/ff52d039-04c6-4e96-abfa-a9f611723723.jpeg?aki_policy=xx_large',
+        'https://z1.muscache.cn/im/pictures/miso/Hosting-45063845/original/7140550b-8d2f-4b45-9b6b-54aa6ef4fd1e.jpeg?aki_policy=x_large',
+        'https://z1.muscache.cn/im/pictures/miso/Hosting-45063845/original/6918db21-f806-4189-9469-267c61c279f5.jpeg?aki_policy=x_large',
+      ],
+      info: {
+        title: '大梅沙民宿',
+        msg: '180°一线海景飘窗',
+        price: '220',
+        publishTime: 1595238771000,
+        startTime: 1595238771000,
+        endTime: 1597917171000,
+      },
+    },
+  },
 };

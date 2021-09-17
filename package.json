@@ -27,7 +27,9 @@
     "dayjs": "^1.10.6",
     "project-libs": "^1.1.5",
     "react": "17.x",
+    "react-awesome-swiper": "^1.4.16",
     "react-dom": "17.x",
+    "think-react-store": "^1.6.71",
     "umi": "^3.5.18"
   },
   "devDependencies": {

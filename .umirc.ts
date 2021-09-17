@@ -32,6 +32,11 @@ export default defineConfig({
           title: '搜索',
           auth: true,
         },
+        {
+          path: '/house',
+          component: './houses/index',
+          title: '房屋详情',
+        },
       ],
     },
   ],
