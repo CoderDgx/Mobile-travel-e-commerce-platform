@@ -64,7 +64,7 @@ export default {
         ];
       } else {
         data = [];
-        count = 9;
+        count = 0;
       }
       res.json({
         data,
@@ -88,5 +88,84 @@ export default {
         endTime: 1597917171000,
       },
     },
+  },
+  'post /api/comments/lists': (req: any, res: any) => {
+    setTimeout(() => {
+      let data: object[];
+      if (req.body.pageNum < 4) {
+        data = [
+          {
+            id: count++,
+            avatar:
+              'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            username: 'user',
+            createTime: 1595238771000,
+            info: '房屋很满意',
+          },
+          {
+            id: count++,
+            avatar:
+              'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            username: 'user',
+            createTime: 1595238771000,
+            info: '空气清新',
+          },
+          {
+            id: count++,
+            avatar:
+              'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            username: 'user',
+            createTime: 1595238771000,
+            info: '态度温和',
+          },
+          {
+            id: count++,
+            avatar:
+              'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            username: 'user',
+            createTime: 1595238771000,
+            info: '早餐味道美',
+          },
+          {
+            id: count++,
+            avatar:
+              'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            username: 'user',
+            createTime: 1595238771000,
+            info: '态度温和',
+          },
+          {
+            id: count++,
+            avatar:
+              'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            username: 'user',
+            createTime: 1595238771000,
+            info: '早餐味道美',
+          },
+          {
+            id: count++,
+            avatar:
+              'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            username: 'user',
+            createTime: 1595238771000,
+            info: '态度温和',
+          },
+          {
+            id: count++,
+            avatar:
+              'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            username: 'user',
+            createTime: 1595238771000,
+            info: '早餐味道美',
+          },
+        ];
+      } else {
+        data = [];
+        count = 0;
+      }
+      res.json({
+        data,
+      });
+    }, 500);
   },
 };

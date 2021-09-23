@@ -12,9 +12,33 @@ import './index.less';
 
 const House: FC = (props) => {
   const {
-    house: { detail, getDetailAsync },
+    house: {
+      detail,
+      getDetailAsync,
+      getCommentsAsync,
+      comments,
+      reloadComments,
+      reloadCommentsNum,
+      showLoading,
+    },
   } = useStoreHook();
   const { query } = useLocation();
+
+  useObserverHook(
+    '#' + CommonEnum.LOADING_ID,
+    (entries: any) => {
+      // console.log(entries)
+      if (
+        comments &&
+        comments.length &&
+        showLoading &&
+        entries[0].isIntersecting
+      ) {
+        reloadComments();
+      }
+    },
+    [comments, showLoading],
+  );
 
   useEffect(() => {
     getDetailAsync({
@@ -22,11 +46,17 @@ const House: FC = (props) => {
     });
   }, []);
 
+  useEffect(() => {
+    getCommentsAsync({
+      id: query?.id,
+    });
+  }, [reloadCommentsNum]);
+
   return (
     <div className="house-page">
       <Banner banner={detail?.data?.banner} />
-      <Info />
-      <Lists />
+      <Info detail={detail?.data?.info} />
+      <Lists lists={comments} showLoading={showLoading} />
       <Footer />
     </div>
   );
