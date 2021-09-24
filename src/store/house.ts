@@ -32,11 +32,21 @@ export default {
     reloadComments(state: any, payload: any) {
       return {
         ...state,
-        reloadCommentsNum: state.reloadComments + 1,
+        reloadCommentsNum: state.reloadCommentsNum + 1,
         page: {
           ...CommonEnum.PAGE,
           pageNum: state.page.pageNum + 1,
         },
+      };
+    },
+    resetData(state: any, payload: any) {
+      return {
+        ...state,
+        comments: [],
+        page: CommonEnum.PAGE,
+        showLoading: true,
+        reloadCommentsNum: 0,
+        ...payload,
       };
     },
   },
@@ -67,8 +77,22 @@ export default {
       });
       dispatch({
         type: 'setShowLoading',
-        payload: (lists as []).length ? true : false,
+        payload: lists.data.length ? true : false,
       });
+    },
+    async addCommentsAsync(dispatch: any, rootState: any, payload: any) {
+      const result = await Http({
+        url: '/comment/add',
+        body: payload,
+      });
+      if (result) {
+        dispatch({
+          type: 'resetData',
+          payload: {
+            reloadCommentsNum: rootState.house.reloadCommentsNum + 1,
+          },
+        });
+      }
     },
   },
 };

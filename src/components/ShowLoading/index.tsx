@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { CommonEnum } from '@/enums';
+import { Icon } from 'antd-mobile';
 
 import './index.less';
 
@@ -13,10 +14,10 @@ const ShowLoading: FC<ShowLoadingProps> = (props) => {
     <div>
       {showLoading ? (
         <div id={CommonEnum.LOADING_ID} className="loading-info">
-          loading
+          <Icon type="loading" size="lg" />
         </div>
       ) : (
-        <div className="loading-info">没有数据了~</div>
+        <div className="loading-info">到底啦~</div>
       )}
     </div>
   );

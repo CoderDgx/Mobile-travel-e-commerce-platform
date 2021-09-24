@@ -168,4 +168,10 @@ export default {
       });
     }, 500);
   },
+  'post /api/comments/add': (req: any, res: any) => {
+    res.json({
+      status: 200,
+      data: 'ok',
+    });
+  },
 };

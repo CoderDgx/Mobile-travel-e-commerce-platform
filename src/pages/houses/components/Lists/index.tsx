@@ -22,7 +22,7 @@ const Lists: FC<ListProps> = (props) => {
                   <p>{item?.username}</p>
                   <p>{timer(item?.createTime)}</p>
                 </div>
-                <div className="right-bottom">{item?.msg}</div>
+                <div className="right-bottom">{item?.info}</div>
               </div>
             </div>
           );

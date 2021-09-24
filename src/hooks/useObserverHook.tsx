@@ -4,7 +4,7 @@ let observer: any;
 export default function useObserverHook(
   ele: any,
   callback: any,
-  watch: any[] | null,
+  watch: any[] | undefined,
 ) {
   useEffect(() => {
     const node = document.querySelector(ele);

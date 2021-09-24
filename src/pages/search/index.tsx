@@ -36,7 +36,6 @@ const Search: FC = (props) => {
   useObserverHook(
     '#' + CommonEnum.LOADING_ID,
     (entries: any) => {
-      // console.log(entries)
       if (!loading && entries[0].isIntersecting) {
         setPage({
           ...page,
@@ -44,7 +43,7 @@ const Search: FC = (props) => {
         });
       }
     },
-    null,
+    undefined,
   );
 
   useImgHook('.item-img', (enties: any) => {}, null);

@@ -20,14 +20,20 @@ const House: FC = (props) => {
       reloadComments,
       reloadCommentsNum,
       showLoading,
+      resetData,
     },
   } = useStoreHook();
   const { query } = useLocation();
 
+  /**
+   * 1，监听loading是否展示出来
+   * 2，出发reload，修改分页
+   * 3，监听reload变化，重新请求接口
+   * 4，拼装数据
+   */
   useObserverHook(
     '#' + CommonEnum.LOADING_ID,
     (entries: any) => {
-      // console.log(entries)
       if (
         comments &&
         comments.length &&
@@ -52,11 +58,23 @@ const House: FC = (props) => {
     });
   }, [reloadCommentsNum]);
 
+  useEffect(() => {
+    return () => {
+      resetData({
+        detail: {},
+      });
+    };
+  }, []);
+
   return (
     <div className="house-page">
+      {/**banner */}
       <Banner banner={detail?.data?.banner} />
+      {/**房屋信息 */}
       <Info detail={detail?.data?.info} />
+      {/**评论列表 */}
       <Lists lists={comments} showLoading={showLoading} />
+      {/**footer */}
       <Footer />
     </div>
   );
