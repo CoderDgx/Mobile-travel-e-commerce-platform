@@ -1,0 +1,49 @@
+@import '../../assets/mixin.less';
+
+.order-page {
+  .am-tabs-tab-bar-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+  }
+  .am-tabs-content-wrap {
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+  .am-activity-indicator.am-activity-indicator-toast {
+    top: 25px;
+  }
+  .order-item {
+    .flex(row, flex-start);
+    margin-bottom: 12px;
+    padding: 12px;
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    img {
+      width: 120px;
+      height: 80px;
+      object-fit: cover;
+    }
+    .center {
+      flex: 1;
+      margin: 0 12px;
+
+      .title {
+        font-size: 18px;
+      }
+      .price {
+        color: #ff4d6a;
+        padding: 8px 0;
+      }
+      .time {
+        color: rgba(0, 0, 0, 0.4);
+      }
+    }
+    .pay {
+      margin-right: 4px;
+    }
+  }
+}
