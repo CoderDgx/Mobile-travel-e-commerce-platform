@@ -27,6 +27,12 @@ export default defineConfig({
           auth: true,
         },
         {
+          path: '/user/edit',
+          component: './user/edit',
+          title: '设置',
+          auth: true,
+        },
+        {
           path: 'search',
           component: './search/index',
           title: '搜索',

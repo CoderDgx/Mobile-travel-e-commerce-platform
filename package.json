@@ -26,6 +26,7 @@
     "axios": "^0.21.4",
     "dayjs": "^1.10.6",
     "project-libs": "^1.1.5",
+    "rc-form": "^2.4.12",
     "react": "17.x",
     "react-awesome-swiper": "^1.4.16",
     "react-dom": "17.x",
