@@ -43,6 +43,16 @@ export default defineConfig({
           component: './houses/index',
           title: '房屋详情',
         },
+        {
+          path: '/login',
+          component: './login/index',
+          title: '登录',
+        },
+        {
+          path: '/register',
+          component: './register/index',
+          title: '注册',
+        },
       ],
     },
   ],

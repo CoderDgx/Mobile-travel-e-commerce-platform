@@ -48,5 +48,34 @@ export default {
         history.push('/user');
       }
     },
+    async loginAsync(dispatch: any, rootState: any, payload: any) {
+      const result: any = await Http({
+        url: '/user/login',
+        body: payload,
+      });
+      if (result) {
+        history.push('/user');
+        Toast.success('登录成功');
+      }
+    },
+    async registerAsync(dispatch: any, rootState: any, payload: any) {
+      const result: any = await Http({
+        url: '/user/register',
+        body: payload,
+      });
+      if (result) {
+        history.push('/login');
+        Toast.success('注册成功');
+      }
+    },
+    async logoutAsync(dispatch: any, rootState: any, payload: any) {
+      const result: any = await Http({
+        url: '/user/logout',
+        body: payload,
+      });
+      if (result) {
+        Toast.success('退出成功');
+      }
+    },
   },
 };

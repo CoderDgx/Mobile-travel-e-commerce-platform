@@ -16,7 +16,7 @@ const User: FC = (props) => {
     });
   }, []);
 
-  const handleClick = () => {
+  const handleEditClick = () => {
     history.push({
       pathname: '/user/edit',
       query: {
@@ -25,10 +25,16 @@ const User: FC = (props) => {
     });
   };
 
+  const handleOutClick = () => {
+    history.push({
+      pathname: '/login',
+    });
+  };
+
   return (
     <div className="user-page">
       <div className="info">
-        <div className="set" onClick={handleClick}>
+        <div className="set" onClick={handleEditClick}>
           设置
         </div>
         <div className="user">
@@ -44,7 +50,9 @@ const User: FC = (props) => {
           <List.Item arrow="horizontal">联系客服</List.Item>
         </List>
       </div>
-      <Button style={{ marginTop: '100px' }}>退出登录</Button>
+      <Button style={{ marginTop: '100px' }} onClick={handleOutClick}>
+        退出登录
+      </Button>
     </div>
   );
 };

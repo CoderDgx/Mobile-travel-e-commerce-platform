@@ -12,4 +12,22 @@ export default {
   'post /api/user/edit': {
     data: 'success',
   },
+  'post /api/user/login': {
+    data: {
+      id: 100,
+      username: 'admin',
+    },
+  },
+  'post /api/user/register': {
+    data: {
+      id: 100,
+      username: 'admin',
+    },
+  },
+  'post /api/user/logout': {
+    data: {
+      id: 100,
+      username: 'admin',
+    },
+  },
 };
