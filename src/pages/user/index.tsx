@@ -7,7 +7,7 @@ import './index.less';
 
 const User: FC = (props) => {
   const {
-    user: { username, avatar, phone, sign, getUserAsync },
+    user: { username, avatar, phone, sign, getUserAsync, logoutAsync },
   } = useStoreHook();
 
   useEffect(() => {
@@ -25,10 +25,8 @@ const User: FC = (props) => {
     });
   };
 
-  const handleOutClick = () => {
-    history.push({
-      pathname: '/login',
-    });
+  const handleLogout = () => {
+    logoutAsync();
   };
 
   return (
@@ -50,7 +48,7 @@ const User: FC = (props) => {
           <List.Item arrow="horizontal">联系客服</List.Item>
         </List>
       </div>
-      <Button style={{ marginTop: '100px' }} onClick={handleOutClick}>
+      <Button style={{ marginTop: '100px' }} onClick={handleLogout}>
         退出登录
       </Button>
     </div>

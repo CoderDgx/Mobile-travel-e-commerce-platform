@@ -54,7 +54,12 @@ export default {
         body: payload,
       });
       if (result) {
-        history.push('/user');
+        localStorage.setItem('username', result.data.username);
+        console.log(urlGet('from'));
+        urlGet('from') &&
+          history.push({
+            pathname: urlGet('from') as string,
+          });
         Toast.success('登录成功');
       }
     },
@@ -74,7 +79,9 @@ export default {
         body: payload,
       });
       if (result) {
+        localStorage.clear();
         Toast.success('退出成功');
+        location.hash = '#//login?from=' + location.pathname;
       }
     },
   },

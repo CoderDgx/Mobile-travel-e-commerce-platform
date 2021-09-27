@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, memo } from 'react';
 import { Picker, List, Calendar, Button, Toast } from 'antd-mobile';
 import { ScheduleOutlined } from '@ant-design/icons';
 import { history } from 'umi';
@@ -88,4 +88,15 @@ const Search: FC<SearchProps> = (props) => {
   );
 };
 
-export default Search;
+function areEqual(prevProps: any, nextProps: any) {
+  if (
+    prevProps.city === nextProps.city &&
+    prevProps.cityLoading === nextProps.cityLoading
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+export default memo(Search, areEqual);

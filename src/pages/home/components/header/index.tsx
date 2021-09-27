@@ -1,15 +1,23 @@
-import React, { FC } from 'react';
+import React, { FC, useState, memo } from 'react';
 import { Link } from 'umi';
 
-const Header: FC = props => {
+const Header: FC = (props) => {
+  const [username, setUsername] = useState(localStorage.getItem('username'));
+  console.log(username);
   return (
     <div className="header">
       <div className="header-title">民宿</div>
       <div className="header-login">
-        <Link to="/login">登录</Link> | <Link to="/register">注册</Link>
+        {username ? (
+          username
+        ) : (
+          <>
+            <Link to="/login">登录</Link> | <Link to="/register">注册</Link>
+          </>
+        )}
       </div>
     </div>
   );
 };
 
-export default Header;
+export default memo(Header);

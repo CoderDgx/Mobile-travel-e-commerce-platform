@@ -1,0 +1,45 @@
+@import '../../assets/mixin.less';
+
+.order-skeletons {
+  .order-item {
+    .flex(row, flex-start);
+    margin-bottom: 12px;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+
+    .left {
+      background-color: rgba(lightgray, 0.5);
+      width: 120px;
+      height: 80px;
+    }
+
+    .center {
+      background-color: rgba(lightgray, 0.5);
+      flex: 1;
+      margin: 0 12px;
+
+      .price {
+        margin: 12px 0;
+        width: 50px;
+      }
+
+      .title {
+        margin: 12px 0;
+        width: 50px;
+      }
+
+      .time {
+        background-color: rgba(lightgray, 0.5);
+        width: 120px;
+      }
+    }
+
+    .pay {
+      background-color: rgba(lightgray, 0.5);
+      margin-right: 4px;
+      width: 70px;
+      height: 30px;
+    }
+  }
+}

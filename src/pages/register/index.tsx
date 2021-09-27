@@ -48,6 +48,7 @@ const Register: FC = (props: any) => {
             rules: [{ required: true }],
           })}
           placeholder="密码"
+          type="password"
         >
           密码：
         </InputItem>
@@ -56,6 +57,7 @@ const Register: FC = (props: any) => {
             rules: [{ required: true }],
           })}
           placeholder="确认密码"
+          type="password"
         >
           确认密码：
         </InputItem>

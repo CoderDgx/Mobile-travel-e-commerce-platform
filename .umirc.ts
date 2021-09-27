@@ -36,7 +36,6 @@ export default defineConfig({
           path: 'search',
           component: './search/index',
           title: '搜索',
-          auth: true,
         },
         {
           path: '/house',

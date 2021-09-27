@@ -3,6 +3,7 @@ import { Tabs, List } from 'antd-mobile';
 import { useObserverHook } from '@/hooks';
 import { ShowLoading } from '@/components';
 import { CommonEnum } from '@/enums';
+import { OrderSkeletons } from '@/skeletons';
 import { Http } from '@/utils';
 import { isEmpty } from 'project-libs';
 import OrderItem, { OrdersType } from './orderItem';
@@ -13,6 +14,7 @@ const Order: React.FC = (props) => {
   const [orders, setOrders] = useState<OrdersType[]>([]);
   const [showLoading, setShowLoading] = useState(true);
   const [type, setType] = useState(0);
+  const skeletonsCount = Array(5).fill(1);
 
   const invokeHttp = async (pageNum: number) => {
     const result: any = await Http({
@@ -76,24 +78,48 @@ const Order: React.FC = (props) => {
     <div className="order-page">
       <Tabs tabs={tabs} onChange={handleChange}>
         <List className="tab">
-          {orders.map((item: OrdersType) => {
-            return (
-              <List.Item>
-                <OrderItem orders={item} type={0} />
-              </List.Item>
-            );
-          })}
-          <ShowLoading showLoading={showLoading} />
+          {isEmpty(orders) ? (
+            skeletonsCount.map((item, index) => {
+              return (
+                <List.Item>
+                  <OrderSkeletons />
+                </List.Item>
+              );
+            })
+          ) : (
+            <div className="tab-lists">
+              {orders.map((item: OrdersType) => {
+                return (
+                  <List.Item>
+                    <OrderItem orders={item} type={0} />
+                  </List.Item>
+                );
+              })}
+              <ShowLoading showLoading={showLoading} />
+            </div>
+          )}
         </List>
         <List className="tab">
-          {orders.map((item: OrdersType) => {
-            return (
-              <List.Item>
-                <OrderItem orders={item} type={1} />
-              </List.Item>
-            );
-          })}
-          <ShowLoading showLoading={showLoading} />
+          {isEmpty(orders) ? (
+            skeletonsCount.map((item, index) => {
+              return (
+                <List.Item>
+                  <OrderSkeletons />
+                </List.Item>
+              );
+            })
+          ) : (
+            <div className="tab-lists">
+              {orders.map((item: OrdersType) => {
+                return (
+                  <List.Item>
+                    <OrderItem orders={item} type={1} />
+                  </List.Item>
+                );
+              })}
+              <ShowLoading showLoading={showLoading} />
+            </div>
+          )}
         </List>
       </Tabs>
     </div>

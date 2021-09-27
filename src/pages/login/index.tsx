@@ -42,6 +42,7 @@ const Login: FC = (props: any) => {
             rules: [{ required: true }],
           })}
           placeholder="密码"
+          type="password"
         >
           密码：
         </InputItem>
