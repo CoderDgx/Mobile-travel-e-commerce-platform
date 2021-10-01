@@ -1,13 +1,13 @@
-create database blog;
+create database e-commerce;
 
-use blog;
+use e-commerce;
 
--- 用户表
+--- 用户表
 create table `user`(
   `id` int not null auto_increment,
   `username` varchar(20) default null comment '用户名',
   `password` varchar(64) default null comment '密码',
-  `avatar` longtext comment '头像',
+  `avatar` text comment '头像',
   `phone` varchar(20) default null comment '电话',
   `sign` varchar(300) default null comment '用户签名',
   `createTime` timestamp default null comment '创建时间',

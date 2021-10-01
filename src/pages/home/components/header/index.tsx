@@ -3,7 +3,6 @@ import { Link } from 'umi';
 
 const Header: FC = (props) => {
   const [username, setUsername] = useState(localStorage.getItem('username'));
-  console.log(username);
   return (
     <div className="header">
       <div className="header-title">民宿</div>

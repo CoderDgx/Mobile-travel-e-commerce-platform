@@ -7,13 +7,11 @@ class UserService extends Service {
     try {
       const { ctx } = this;
       const result = await ctx.model.User.findOne({
-        where: {
-          username,
-        },
+        where: { username },
       });
       return result;
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
       return null;
     }
   }
@@ -23,8 +21,8 @@ class UserService extends Service {
       const { ctx } = this;
       const result = await ctx.model.User.create(params);
       return result;
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
       return null;
     }
   }

@@ -1,5 +1,5 @@
 {
-  "name": "blog-server",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -32,8 +32,8 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-blog-server",
-    "stop": "egg-scripts stop --title=egg-server-blog-server",
+    "start": "egg-scripts start --daemon --title=egg-server-server",
+    "stop": "egg-scripts stop --title=egg-server-server",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",

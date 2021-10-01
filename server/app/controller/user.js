@@ -6,22 +6,21 @@ const dayjs = require('dayjs');
 
 class UserController extends Controller {
   async register() {
-    const { ctx, app } = this.props;
-    const parmas = ctx.request.body;
-    const user = await ctx.service.user.getUser(parmas.username);
-
+    const { ctx, app } = this;
+    const params = ctx.request.body;
+    const user = await ctx.service.user.getUser(params.username);
     if (user) {
       ctx.body = {
         status: 500,
-        errMsg: 'User already registered',
+        errMsg: '用户已存在',
       };
       return;
     }
 
-    const result = await ctx.model.User.add({
-      ...parmas,
-      password: md5(parmas.password + app.config.salt),
-      createTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+    const result = await ctx.service.user.add({
+      ...params,
+      password: md5(params.password + app.config.salt),
+      createTime: dayjs(Date.now()).format('YYYY-MM-DD HH:mm:ss'),
     });
     if (result) {
       ctx.body = {
@@ -31,7 +30,7 @@ class UserController extends Controller {
     } else {
       ctx.body = {
         status: 500,
-        errMsg: 'User already registered',
+        errMsg: '注册失败',
       };
     }
   }

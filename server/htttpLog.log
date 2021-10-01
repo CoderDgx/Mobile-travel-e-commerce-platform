@@ -1,0 +1,8 @@
+2021-10-01 16:45:39 [httpLog] {"method":"GET","url":"/","data":{},"startTime":"2021-10-01 16:45:39","endTime":"2021-10-01 16:45:39","timeLength":1}
+2021-10-01 16:45:53 [httpLog] {"method":"GET","url":"/api/user/register","data":{},"startTime":"2021-10-01 16:45:53","endTime":"2021-10-01 16:45:53","timeLength":0}
+2021-10-01 16:47:56 [httpLog] {"method":"POST","url":"/api/user/register","data":{"username":"test1","password":"1234"},"startTime":"2021-10-01 16:47:56","endTime":"2021-10-01 16:47:56","timeLength":69}
+2021-10-01 16:53:33 [httpLog] {"method":"POST","url":"/api/user/register","data":{"username":"test1","password":"1234"},"startTime":"2021-10-01 16:53:33","endTime":"2021-10-01 16:53:33","timeLength":4}
+2021-10-01 16:55:01 [httpLog] {"method":"POST","url":"/api/user/register","data":{"username":"test1","password":"1234"},"startTime":"2021-10-01 16:55:01","endTime":"2021-10-01 16:55:01","timeLength":3}
+2021-10-01 16:55:02 [httpLog] {"method":"POST","url":"/api/user/register","data":{"username":"test1","password":"1234"},"startTime":"2021-10-01 16:55:02","endTime":"2021-10-01 16:55:02","timeLength":0}
+2021-10-01 16:55:17 [httpLog] {"method":"POST","url":"/api/user/register","data":{"username":"test1","password":"1234"},"startTime":"2021-10-01 16:55:17","endTime":"2021-10-01 16:55:17","timeLength":25}
+2021-10-01 16:55:40 [httpLog] {"method":"POST","url":"/api/user/register","data":{"username":"test1","password":"1234"},"startTime":"2021-10-01 16:55:40","endTime":"2021-10-01 16:55:40","timeLength":13}
