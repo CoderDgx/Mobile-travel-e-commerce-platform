@@ -4,6 +4,13 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  mock: false,
+  proxy: {
+    '/api': {
+      target: 'http://127.0.0.1:7002',
+      changeOrign: true,
+    },
+  },
   routes: [
     {
       path: '/',

@@ -20,7 +20,7 @@ const Register: FC = (props: any) => {
         return;
       } else {
         if (value.password !== value.password2) {
-          Toast.fail('密码和确认密ß码必须一致');
+          Toast.fail('密码和确认密码必须一致');
           return;
         }
         registerAsync(value);

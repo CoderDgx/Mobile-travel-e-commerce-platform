@@ -49,10 +49,14 @@ module.exports = (appInfo) => {
   };
 
   config.session = {
-    key: 'MUKE_SESS',
+    key: 'GX_SESS',
     httpOnly: true,
     maxAge: 1000 * 50,
     renew: true,
+  };
+
+  config.jwt = {
+    secret: 'gx',
   };
 
   config.auth = {

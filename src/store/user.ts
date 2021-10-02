@@ -54,8 +54,8 @@ export default {
         body: payload,
       });
       if (result) {
+        localStorage.setItem('token', result.data.token);
         localStorage.setItem('username', result.data.username);
-        console.log(urlGet('from'));
         urlGet('from') &&
           history.push({
             pathname: urlGet('from') as string,
