@@ -4,7 +4,7 @@ import axios, { Method, AxiosResponse } from 'axios';
 interface HttpProps {
   url?: string;
   method?: Method;
-  headers?: any;
+  headers?: {};
   body?: any;
   setResult?: React.Dispatch<any>;
   setLoading?: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,9 +15,17 @@ export default function Http(props: HttpProps) {
 
   setLoading && setLoading(true);
 
-  let defaultHeader = {
-    'Content-type': 'application/json',
-  };
+  const token = localStorage.getItem('token');
+
+  let defaultHeader;
+  token
+    ? (defaultHeader = {
+        'Content-type': 'application/json',
+        token,
+      })
+    : {
+        'Content-type': 'application/json',
+      };
 
   let params: any;
   if (method?.toUpperCase() === 'GET') {
@@ -42,18 +50,18 @@ export default function Http(props: HttpProps) {
         ...params.body,
       },
     })
-      .then((res) => {
-        if (res.status === 200) {
+      .then((res: any) => {
+        if (res.data.status === 200) {
           resolve(res.data);
           setResult && setResult(res.data.data);
         } else {
-          if (res.status === 1001) {
-            // location.href = '/login?from=' + location.pathname;
-            location.hash = '#/login?from=' + location.pathname;
+          if (res.data.status === 1001) {
+            location.href = '/login?from=' + location.pathname;
+            // location.hash = '#/login?from=' + location.pathname;
             localStorage.clear();
           }
-          Toast.fail(res.request);
-          reject(res.request);
+          Toast.fail(res.data.errMsg);
+          reject(res.data.errMsg);
         }
       })
       .catch((err) => {

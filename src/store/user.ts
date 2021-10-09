@@ -81,7 +81,7 @@ export default {
       if (result) {
         localStorage.clear();
         Toast.success('退出成功');
-        location.hash = '#//login?from=' + location.pathname;
+        location.href = '/login?from=' + location.pathname;
       }
     },
   },

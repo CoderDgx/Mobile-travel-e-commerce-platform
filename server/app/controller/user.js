@@ -72,6 +72,42 @@ class UserController extends Controller {
       };
     }
   }
+
+  async detail() {
+    const { ctx } = this;
+    const user = await ctx.service.user.getUser(ctx.username);
+
+    if (user) {
+      ctx.body = {
+        status: 200,
+        data: {
+          ...ctx.helper.unPick(user.dataValues, ['password']),
+          createTime: ctx.helper.timestamp(user.createTime),
+        },
+      };
+    } else {
+      ctx.body = {
+        status: 500,
+        errMsg: '该用户不存在',
+      };
+    }
+  }
+
+  async logout() {
+    const { ctx } = this;
+    try {
+      ctx.session[ctx.username] = null;
+      ctx.body = {
+        status: 200,
+        data: 'success',
+      };
+    } catch (error) {
+      ctx.body = {
+        status: 500,
+        errMsg: '退出登录失败',
+      };
+    }
+  }
 }
 
 module.exports = UserController;
