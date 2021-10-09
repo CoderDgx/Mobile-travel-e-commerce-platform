@@ -88,10 +88,20 @@ module.exports = (appInfo) => {
     },
   };
 
+  config.redis = {
+    client: {
+      port: 6379,
+      host: '127.0.0.1',
+      password: '12345678',
+      db: 0,
+    },
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
     salt: 'gx',
+    redisExpire: 60 * 60 * 24,
   };
 
   return {
