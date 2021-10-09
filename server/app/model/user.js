@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (app) => {
   const { STRING, INTEGER, TEXT, DATE } = app.Sequelize;
 
