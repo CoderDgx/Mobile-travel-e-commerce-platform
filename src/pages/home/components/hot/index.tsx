@@ -47,7 +47,7 @@ const Hot: FC<HotProps> = (props) => {
         {houses.map((item: any) => {
           return (
             <div className="hot-lists-item" key={item.id}>
-              <img className="img" alt="img" src={item.img} />
+              <img className="img" alt="img" src={item?.imgs[0]?.url} />
               <div className="info">{item.info}</div>
               <div className="title">{item.title}</div>
               <div className="price">{'￥' + item.price}</div>
