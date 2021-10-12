@@ -10,8 +10,8 @@ const Info: FC<InfoProps> = (props) => {
   const { detail } = props;
   return (
     <div className="info">
-      <div className="info-title">{detail?.title}</div>
-      <div className="info-msg">简介：{detail?.msg}</div>
+      <div className="info-title">{detail?.name}</div>
+      <div className="info-msg">简介：{detail?.info}</div>
       <div className="info-price">价格：{'￥' + detail?.price}</div>
       <div className="info-time">发布时间：{timer(detail?.publishTime)}</div>
       <div className="info-time">开始出租：{timer(detail?.startTime, '')}</div>

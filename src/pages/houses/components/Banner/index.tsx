@@ -22,7 +22,7 @@ const Banner: FC<BannerProps> = (props) => {
         {banner?.map((item, index) => {
           return (
             <div className="swiper-slide" key={index}>
-              <img alt="banner" src={item} />
+              <img alt="banner" src={item.url} />
             </div>
           );
         })}

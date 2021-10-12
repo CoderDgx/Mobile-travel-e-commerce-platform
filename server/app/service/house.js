@@ -30,6 +30,7 @@ class HouseService extends BaseService {
   async search(params) {
     return this.run(async (ctx, app) => {
       const { lte, gte, like } = app.Sequelize.Op;
+
       const where = {
         cityCode: Array.isArray(params.code) ? params.code[0] : params.code,
         startTime: {

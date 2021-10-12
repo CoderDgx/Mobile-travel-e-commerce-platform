@@ -103,10 +103,10 @@ const Search: FC = (props) => {
                 alt="img"
                 className="item-img"
                 src={require('../../assets/blank.png')}
-                data-src={item?.img}
+                data-src={item?.imgs[0]?.url}
               />
               <div className="item-right">
-                <div className="title">{item.title}</div>
+                <div className="title">{item.name}</div>
                 <div className="price">{item.price}</div>
               </div>
             </div>
