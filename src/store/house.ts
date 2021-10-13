@@ -64,10 +64,10 @@ export default {
     async getCommentsAsync(dispatch: any, rootState: any, payload: any) {
       const { comments, page } = rootState.house;
       const lists: any = await Http({
-        url: '/comments/lists',
+        url: '/comment/lists',
         body: {
           ...payload,
-          pageSzie: page.pageSzie,
+          pageSize: page.pageSize,
           pageNum: page.pageNum,
         },
       });

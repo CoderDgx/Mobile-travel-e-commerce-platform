@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import { history } from 'umi';
 
 interface HotProps {
   houses: any;
@@ -40,13 +41,25 @@ const Hot: FC<HotProps> = (props) => {
   //   },
   // ]);
   const { houses } = props;
+  const handleClick = (id: any) => {
+    history.push({
+      pathname: '/house',
+      query: {
+        id,
+      },
+    });
+  };
   return (
     <div className="hot">
       <h1>最热民宿</h1>
       <div className="hot-lists">
         {houses.map((item: any) => {
           return (
-            <div className="hot-lists-item" key={item.id}>
+            <div
+              className="hot-lists-item"
+              key={item.id}
+              onClick={() => handleClick(item.id)}
+            >
               <img className="img" alt="img" src={item?.imgs[0]?.url} />
               <div className="info">{item.info}</div>
               <div className="title">{item.title}</div>
