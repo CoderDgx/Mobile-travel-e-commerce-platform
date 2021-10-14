@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (app) => {
   const { STRING, INTEGER, DATE } = app.Sequelize;
-  const Oreders = app.model.define('orders', {
+  const Orders = app.model.define('orders', {
     id: {
       type: INTEGER,
       primaryKey: true,
@@ -25,5 +25,12 @@ module.exports = (app) => {
     },
   });
 
-  return Oreders;
+  Orders.associate = () => {
+    app.model.Orders.belongsTo(app.model.House, {
+      foreignKey: 'houseId',
+      as: 'house',
+    });
+  };
+
+  return Orders;
 };

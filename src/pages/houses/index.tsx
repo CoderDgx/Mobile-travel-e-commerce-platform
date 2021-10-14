@@ -3,10 +3,11 @@ import Banner from './components/Banner';
 import Footer from './components/Footer';
 import Info from './components/Info';
 import Lists from './components/Lists';
+import { NavBar, Icon } from 'antd-mobile';
 import { useStoreHook } from 'think-react-store';
 import { useObserverHook } from '@/hooks';
 import { CommonEnum } from '@/enums';
-import { useLocation } from 'umi';
+import { useLocation, history } from 'umi';
 
 import './index.less';
 
@@ -88,8 +89,15 @@ const House: FC = (props) => {
     }
   };
 
+  const handleBack = () => {
+    history.goBack();
+  };
+
   return (
     <div className="house-page">
+      <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={handleBack}>
+        房屋详情
+      </NavBar>
       {/**banner */}
       <Banner banner={detail?.data?.banner} />
       {/**房屋信息 */}

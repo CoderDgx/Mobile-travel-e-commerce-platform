@@ -6,7 +6,7 @@ import * as store from '../store';
 
 const BasicLayout: React.FC = (props) => {
   const location = useLocation();
-  const paths = ['/', '/order', '/user'];
+  const paths = ['/', '/order', '/user', '/search'];
   return (
     <StoreProvider store={store}>
       <MenuBar

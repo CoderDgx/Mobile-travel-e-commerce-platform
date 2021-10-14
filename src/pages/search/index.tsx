@@ -1,7 +1,7 @@
 import React, { useState, useEffect, FC } from 'react';
-import { SearchBar, ActivityIndicator } from 'antd-mobile';
+import { SearchBar, ActivityIndicator, NavBar, Icon } from 'antd-mobile';
 import { useHttpHook, useObserverHook, useImgHook } from '@/hooks';
-import { useLocation } from 'umi';
+import { useLocation, history } from 'umi';
 import { ShowLoading } from '@/components';
 import { CommonEnum } from '@/enums';
 
@@ -82,6 +82,15 @@ const Search: FC = (props) => {
     }
   }, [loading]);
 
+  const handleClick = (id: any) => {
+    history.push({
+      pathname: '/house',
+      query: {
+        id,
+      },
+    });
+  };
+
   return (
     <div className="search-page">
       {/**顶部搜索栏 */}
@@ -98,7 +107,11 @@ const Search: FC = (props) => {
       ) : (
         <div className="result">
           {houseLists.map((item: any) => (
-            <div className="item" key={item.id}>
+            <div
+              className="item"
+              key={item.id}
+              onClick={() => handleClick(item.id)}
+            >
               <img
                 alt="img"
                 className="item-img"
@@ -107,7 +120,7 @@ const Search: FC = (props) => {
               />
               <div className="item-right">
                 <div className="title">{item.name}</div>
-                <div className="price">{item.price}</div>
+                <div className="price">{'￥' + item.price}</div>
               </div>
             </div>
           ))}

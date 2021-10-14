@@ -14,11 +14,12 @@ const Order: React.FC = (props) => {
   const [orders, setOrders] = useState<OrdersType[]>([]);
   const [showLoading, setShowLoading] = useState(true);
   const [type, setType] = useState(0);
+  const [showSkt, setShowSkt] = useState(false);
   const skeletonsCount = Array(5).fill(1);
 
   const invokeHttp = async (pageNum: number) => {
     const result: any = await Http({
-      url: '/order/lists',
+      url: '/orders/lists',
       body: {
         ...page,
         pageNum,
@@ -37,6 +38,14 @@ const Order: React.FC = (props) => {
       setShowLoading(false);
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (isEmpty(orders)) {
+        setShowSkt(true);
+      }
+    }, 1500);
+  }, []);
 
   useObserverHook(
     '#' + CommonEnum.LOADING_ID,
@@ -101,18 +110,24 @@ const Order: React.FC = (props) => {
         </List>
         <List className="tab">
           {isEmpty(orders) ? (
-            skeletonsCount.map((item, index) => {
-              return (
-                <List.Item>
-                  <OrderSkeletons />
-                </List.Item>
-              );
-            })
+            <>
+              {showSkt ? (
+                <ShowLoading showLoading={false} />
+              ) : (
+                skeletonsCount.map((item, index) => {
+                  return (
+                    <List.Item>
+                      <OrderSkeletons />
+                    </List.Item>
+                  );
+                })
+              )}
+            </>
           ) : (
             <div className="tab-lists">
               {orders.map((item: OrdersType) => {
                 return (
-                  <List.Item>
+                  <List.Item key={item.id}>
                     <OrderItem orders={item} type={1} />
                   </List.Item>
                 );
