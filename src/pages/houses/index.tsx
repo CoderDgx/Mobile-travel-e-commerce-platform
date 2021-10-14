@@ -21,6 +21,10 @@ const House: FC = (props) => {
       reloadCommentsNum,
       showLoading,
       resetData,
+      order,
+      hasOrderAsync,
+      addOrderAsync,
+      delOrderAsync,
     },
   } = useStoreHook();
   const { query } = useLocation();
@@ -59,6 +63,12 @@ const House: FC = (props) => {
   }, [reloadCommentsNum]);
 
   useEffect(() => {
+    hasOrderAsync({
+      id: query?.id,
+    });
+  }, []);
+
+  useEffect(() => {
     return () => {
       resetData({
         detail: {},
@@ -66,12 +76,28 @@ const House: FC = (props) => {
     };
   }, []);
 
+  const handleBtnClick = (id: any) => {
+    if (!id) {
+      addOrderAsync({
+        id: query?.id,
+      });
+    } else {
+      delOrderAsync({
+        id: query?.id,
+      });
+    }
+  };
+
   return (
     <div className="house-page">
       {/**banner */}
       <Banner banner={detail?.data?.banner} />
       {/**房屋信息 */}
-      <Info detail={detail?.data?.info} />
+      <Info
+        detail={detail?.data?.info}
+        order={order?.data}
+        btnClick={handleBtnClick}
+      />
       {/**评论列表 */}
       <Lists lists={comments} showLoading={showLoading} />
       {/**footer */}

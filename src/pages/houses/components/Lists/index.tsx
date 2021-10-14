@@ -9,7 +9,6 @@ interface ListProps {
 
 const Lists: FC<ListProps> = (props) => {
   const { lists, showLoading } = props;
-  console.log(lists);
   return (
     <div className="comment">
       <h1 className="comment-title">评论</h1>

@@ -1,6 +1,17 @@
 import { Http } from '@/utils';
 import { CommonEnum } from '@/enums';
 
+async function handleOrder(url: any, dispatch: any, payload: any) {
+  const result = await Http({
+    url,
+    body: payload,
+  });
+  dispatch({
+    type: 'setOrder',
+    payload: result,
+  });
+}
+
 export default {
   state: {
     detail: {},
@@ -15,6 +26,12 @@ export default {
       return {
         ...state,
         detail: payload,
+      };
+    },
+    setOrder(state: any, payload: any) {
+      return {
+        ...state,
+        order: payload,
       };
     },
     getComments(state: any, payload: any) {
@@ -93,6 +110,15 @@ export default {
           },
         });
       }
+    },
+    async hasOrderAsync(dispatch: any, rootState: any, payload: any) {
+      await handleOrder('/orders/hasOrder', dispatch, payload);
+    },
+    async addOrderAsync(dispatch: any, rootState: any, payload: any) {
+      await handleOrder('/orders/addOrder', dispatch, payload);
+    },
+    async delOrderAsync(dispatch: any, rootState: any, payload: any) {
+      await handleOrder('/orders/delOrder', dispatch, payload);
     },
   },
 };
