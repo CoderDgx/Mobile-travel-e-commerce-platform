@@ -23,6 +23,18 @@ module.exports = (appInfo) => {
     type: 'all',
   };
 
+  config.allowHosts = ['localhost:8000', '127.0.0.1:8000'];
+
+  config.interfaceLimit = {
+    maxCount: 3, // 最多请求个数
+    time: 3 * 1000, // 间隔时间
+  };
+
+  config.interfaceCache = {
+    expire: 10,
+    include: ['/api/user/detail'],
+  };
+
   config.security = {
     csrf: {
       enable: false,

@@ -1,0 +1,6 @@
+{
+  "name": "egg-interfaceLimit",
+  "eggPlugin": {
+    "name": "interfaceLimit"
+  }
+}
