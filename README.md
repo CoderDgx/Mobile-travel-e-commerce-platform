@@ -20,7 +20,7 @@ Server
 cd server
 ```
 
-使用server/app.sql创建数据库，相关配置在server/config文件中。
+使用server/app.sql创建数据库，需要安装redis，相关配置在server/config文件中。
 
 运行：
 
