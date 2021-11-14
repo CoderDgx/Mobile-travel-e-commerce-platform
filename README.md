@@ -2,7 +2,13 @@
 
 ## Technology stack
 
+**前端**
+
 React@17.x+umi@3.5.18+antd-mobile@2.3.4+axios@0.21.4+less
+
+**后端**
+
+mysql+redis+egg@2.15.1+egg-sequelize@6.0.0
 
 ## Project introduce
 
